@@ -1,0 +1,9 @@
+# import os
+# def delete(file):
+#     os.remove(file)
+
+# def rename(file, new_name):
+#     os.rename(file, new_name)
+
+# def exist(file):
+#     os.path.exists(file)
