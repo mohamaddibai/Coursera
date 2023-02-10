@@ -11,6 +11,7 @@ def merge():
     print("\n")
     user_list = list(map(int, input_string.split()))
 
+#
     should_restart = True
     while should_restart:
         should_restart = False
