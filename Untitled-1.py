@@ -1,18 +1,23 @@
-# #!/user/bin/env python
+import random
 
-# import shutil
-# import psutil
+grid= [[0 for col in range(4)]
+                    for row in range(5)]
+print(grid)
+for _ in range(2):
+    random_index = random.randrange(len(grid))
+    random_inner_list = grid[random_index]
+    random_item_index = random.randrange(len(random_inner_list))
+    replacement_item = random.choices([2, 4], weights=[0.9, 0.1])[0]
 
-# def check_disk_usage(disk):
-#     du = shutil.disk_usage(disk)
-#     free = du.free / du.total * 100
-#     print(free)
-# def check_cpu_usage():
-#     usage = psutil.cpu_percent(1)
-#     return usage < 75
+    random_inner_list[random_item_index] = replacement_item
 
-# # if not check_disk_usage("/") or not check_cpu_usage():
-# #     print("Error")
-# # else:
-# #     print("Everthing is OK!")
-# check_disk_usage("/")
+def merge():
+    'print the grid in a vertical way'
+    for col in range(4):
+        for row in range(5):
+            print(grid[row][col], end=' ')
+        print()
+
+merge()
+
+#choose index randomly from grid
