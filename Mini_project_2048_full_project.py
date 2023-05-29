@@ -3,14 +3,13 @@ Clone of 2048 game.
 """
 
 # import poc_2048_gui
-import Mini_project_2048_unitTesting
+#import Mini_project_2048_unitTesting
 import random
 # Directions, DO NOT MODIFY
 UP = 1
 DOWN = 2
 LEFT = 3
 RIGHT = 4
-print('voila')
 
 # Offsets for computing tile indices in each direction.
 # DO NOT MODIFY this dictionary.
@@ -73,11 +72,7 @@ class TwentyFortyEight:
         Return a string representation of the grid for debugging.
         """
         # replace with your code
-        for col in range(4):
-            for row in range(5):
-                print(self._grid [row][col], end=' ')
-        print()
-
+        print(self._grid)
 
     def get_grid_height(self):
         """
@@ -85,9 +80,7 @@ class TwentyFortyEight:
         """
         # replace with your code
         return self.grid_height
-
-        
-
+    
     def get_grid_width(self):
         """
         Get the width of the board.
@@ -95,7 +88,6 @@ class TwentyFortyEight:
         # replace with your code
         return self.grid_width
         
-
     def move(self, direction):
         """
         Move all tiles in the given direction and add
@@ -119,8 +111,6 @@ class TwentyFortyEight:
 
             random_inner_list[random_item_index] = replacement_item
 
-
-
     def set_tile(self, row, col, value):
         """
         Set the tile at position row, col to have the given value.
@@ -128,7 +118,6 @@ class TwentyFortyEight:
         # replace with your code
         self._grid[row][col] = value
     
-
     def get_tile(self, row, col):
         """
         Return the value of the tile at position row, col.
@@ -136,27 +125,30 @@ class TwentyFortyEight:
         # replace with your code
         return self._grid[row][col]
 
-
 # poc_2048_gui.run_gui(TwentyFortyEight(4, 4))
 
 
-# def test_TwentyFortyEight():
-#     """
-#     Test code for Solitaire Mancala
-#     """
+def test_TwentyFortyEight():
+    """
+    Test code for TwentyFortyEight
+    """
     
-#     my_game = TwentyFortyEight()
-#     print ("Testing init - Computed:", my_game, "Expected: [0]")
-    
-#     config1 = [0, 0, 1, 1, 3, 5, 0]    
-#     my_game.set_board(config1)   
-    
-#     print ("Testing set_board - Computed:", str(my_game), "Expected:", str([0, 5, 3, 1, 1, 0, 0]))
-#     print ("Testing get_num_seeds - Computed:", my_game.get_num_seeds(1), "Expected:", config1[1])
-#     print ("Testing get_num_seeds - Computed:", my_game.get_num_seeds(3), "Expected:", config1[3])
-#     print ("Testing get_num_seeds - Computed:", my_game.get_num_seeds(5), "Expected:", config1[5])
+    my_game = TwentyFortyEight(5,4)
+    my_game.reset()
+    print("--------------------")
+    my_game.__str__()
+    print("--------------------")
+    my_game.get_grid_height()
+    print("--------------------")
+    my_game.get_grid_width()
+    print("--------------------")
+    my_game.set_tile(1,1,7)
+    print("--------------------")
+    my_game.get_tile(1,1)
+    print("--------------------")
+    my_game.__str__()
 
-#     # add more tests here
-    
-# test_mancala()
 
+    # add more tests here
+    
+test_TwentyFortyEight()
