@@ -81,6 +81,22 @@ def rpsls(player_choice):
         print('You lose!')
 
     # compute difference of comp_number and player_number modulo five
+        # compute difference of comp_number and player_number modulo five
+    d=player_number-comp_number
+    # use if/elif/else to determine winner, print winner message
+    if d==0:
+        print "Player and computer tie!"
+    elif d%5 == 1:
+        print "Player wins!"
+    elif d%5 == 2:
+        print "Player wins!"
+    elif d%5 == 3:
+        print "Computer wins!"
+    elif d%5 == 4:
+        print "computer wins!"
+    else:
+        print none
+    
 
 
     

@@ -23,17 +23,13 @@ def merge(line):
     """
     Helper function that merges a single row or column in 2048
     """
-    # replace with your code from the previous mini-project
-    # capture the input
-    input_string = input('Enter list of your numbers with a space between each')
-    print("\n")
-    user_list_input = list(map(int, input_string.split()))
+    user_list_input = line
     zero_list = [0] * len(user_list_input)
     saved = 0
     should_restart = True
     while should_restart:
         should_restart = False
-        for index, value in enumerate(user_list_input):
+        for value in enumerate(user_list_input):
             if value > 0:
                 if value == saved :
                     zero_list[zero_list.index(saved)] = value + saved 
@@ -56,6 +52,16 @@ class TwentyFortyEight:
         self.grid_height = grid_height
         self.grid_width = grid_width
         self.reset()
+        self._up_indices = [(0, col) for col in range(self.grid_width)]
+        self._down_indices = [(self.grid_height - 1, col) for col in range(self.grid_width)]
+        self._left_indices = [(row, 0) for row in range(self.grid_height)]
+        self._right_indices = [(row, self.grid_width - 1) for row in range(self.grid_height)]
+        self._indices = {UP: self._up_indices,
+                            DOWN: self._down_indices,
+                            LEFT: self._left_indices,
+                            RIGHT: self._right_indices}
+        
+
 
     def reset(self):
         """
@@ -94,7 +100,20 @@ class TwentyFortyEight:
         a new tile if any tiles moved.
         """
         # replace with your code
-        pass
+        self.direction = direction
+        if self.direction == UP:
+            for cell in self._up_indices:
+                self._grid[cell[0]][cell[1]] = merge(self.OFFSETS[direction])
+        if self.direction == DOWN:
+            for cell in self._down_indices:
+                self._grid[cell[0]][cell[1]] = merge(self.OFFSETS[direction])
+        if self.direction == LEFT:
+            for cell in self._left_indices:
+                self._grid[cell[0]][cell[1]] = merge(self.OFFSETS[direction])
+        if self.direction == RIGHT:
+            for cell in self._right_indices:
+                self._grid[cell[0]][cell[1]] = merge(self.OFFSETS[direction])
+        self.new_tile()
 
     def new_tile(self):
         """
