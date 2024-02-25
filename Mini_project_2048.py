@@ -19,7 +19,10 @@ def merge():
         for index, value in enumerate(user_list_input):
             if value > 0:
                 if value == saved :
-                    zero_list[zero_list.index(saved)] = value + saved 
+                    if zero_list.count(value) > 1:
+                        zero_list[zero_list.index(saved, zero_list.index(saved) + 1 )] = value + saved 
+                    else:
+                        zero_list[zero_list.index(saved)] = value + saved 
                     saved = 0
                     continue
                 if value != saved:
