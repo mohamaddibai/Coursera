@@ -1,0 +1,13 @@
+x = 5
+def increas():
+    global x
+    x = x*2
+    return x
+def decreas():
+    global x
+    x=x-3
+
+for _ in range(12):
+    increas()
+    decreas()
+print(x)

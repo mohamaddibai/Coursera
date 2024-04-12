@@ -1,0 +1,46 @@
+def is_point_inside_rectangle(point, rectangle):
+    """
+    Check if a point is inside a rectangle.
+
+    Parameters:
+    - point: A tuple representing the coordinates of the point (x, y).
+    - rectangle: A list of tuples representing the coordinates of the rectangle's corners
+                 in clockwise order: [(x1, y1), (x2, y2), (x3, y3), (x4, y4)].
+
+    Returns:
+    - True if the point is inside or on the rectangle, False otherwise.
+    """
+    x, y = point
+    x1, y1 = rectangle[0]
+    x2, y2 = rectangle[1]
+    x3, y3 = rectangle[2]
+    x4, y4 = rectangle[3]
+
+    # Check if the point's x-coordinate is between the minimum and maximum x-coordinates of the rectangle
+    if min(x1, x2, x3, x4) <= x <= max(x1, x2, x3, x4):
+        # Check if the point's y-coordinate is between the minimum and maximum y-coordinates of the rectangle
+        if min(y1, y2, y3, y4) <= y <= max(y1, y2, y3, y4):
+            return True
+    return False
+
+# Starting point coordinates
+point = [10, 20]
+
+# Rectangle coordinates
+rectangle = [(50, 50), (180, 50), (180, 140), (50, 140)]
+
+# Incremental change in point's position
+increment = [3, 0.7]
+
+# Iterate over point's position changes
+for _ in range(100):  # Adjust the range as needed
+    # Update point's position
+    point[0] += increment[0]
+    point[1] += increment[1]
+
+    # Check if the updated point is inside or on the rectangle
+    if is_point_inside_rectangle(point, rectangle):
+        print("The point intersects with the rectangle.")
+        break
+else:
+    print("The point does not intersect with the rectangle within the specified iterations.")
